@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        form {
+            width: 600px;
+            margin: 0 auto;
+        }
+
+        form fieldset {
+            padding: 10px;
+        }
+
+        form fieldset meter,
+        form fieldset input {
+            width: 100%;
+            height: 40px;
+            box-sizing: border-box;
+            border-radius: 4px;
+            padding-left: 5px;
+            margin: 10px 0;
+            border: 0;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+<form action="">
+    <fieldset>
+        <legend>学生档案</legend>
+        <!--用户名输入，自动聚焦  autofouce  占位符  placeholder-->
+        <label for="userName">姓名：</label>
+        <input type="text" name="userName" placeholder="请输入用户名" id="userName" autofocus/>
+        <!--手机号码输入,必需输入-->
+        <label for="telName">手机号码：</label>
+        <input type="tel" name="telName" id="telName" required pattern="^1\d{10}$"/>
+        <!--邮箱地址-->
+        <label for="email">邮箱地址：</label>
+        <input type="email" name="email" id="email" required/>
+        <!--所属学院  datalist中必需有id名，与input中的list相对应-->
+        <label for="userSchool">所属学院：</label>
+        <input type="text" name="userSchool" list="userSchool" placeholder="请选择自己所在的院校"/>
+        <datalist id="userSchool">
+            <option value="网络安全与信息化" label="安全信息有保证"></option>
+            <option value="传媒学院"></option>
+            <option value="生物学院"></option>
+            <option value="人文学院"></option>
+        </datalist>
+        <!--入学成绩-->
+        <label for="score">入学成绩：</label>
+        <input type="number" name="score" id="score" max="100" min="0" value="0"/>
+        <!--基础水平-->
+        <label for="level">基础水平：</label>
+        <meter id="level" max="100" min="0" high="90" low="59"></meter>
+        <!--入学日期-->
+        <label for="enterSchool">入学日期：</label>
+        <input type="date" name="enterSchool" id="enterSchool"/>
+        <!--毕业日期-->
+        <label for="outSchool">毕业日期：</label>
+        <input type="date" name="outSchool" id="outSchool"/>
+        <input type="submit" value="提交"/>
+    </fieldset>
+</form>
+<script>
+//    oninvalid验证不通过时触发
+    document.querySelector("#telName").oninvalid = function () {
+        this.setCustomValidity("手机号必须是以1开头的十一位数字");
+    }
+//    oninput用户输入内容时触发
+    document.querySelector("#score").oninput = function () {
+        document.querySelector("#level").value = this.value;
+    }
+</script>
+</body>
+</html>

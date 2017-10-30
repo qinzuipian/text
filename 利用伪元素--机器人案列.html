@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            background-color: #ccc;
+        }
+        .content {
+            width: 500px;
+            height: 500px;
+            border: 1px solid #f00;
+            margin: 50px auto;
+        }
+        .an-header {
+            width: 250px;
+            height: 125px;
+            background-color: darkgreen;
+            border-radius: 125px 125px 0 0;
+            margin: 0 auto;
+            position: relative;
+            margin-top: 10px;
+
+        }
+        .an-header::after,
+        .an-header::before {
+            content: "";
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            position: absolute;
+            bottom: 40px;
+        }
+        .an-header::after {
+            left: 70px;
+        }
+        .an-header::before {
+            right: 70px;
+        }
+        .an-body {
+            width: 250px;
+            height: 250px;
+            background-color: darkgreen;
+            margin: 0 auto;
+            margin-top: 10px;
+            border-radius: 0 0 20px 20px ;
+            position: relative;
+
+        }
+        .an-body::before,
+        .an-body::after {
+            content: "";
+            width: 30px;
+            height: 180px;
+            background-color: darkgreen;
+            border-radius: 10px;
+            position: absolute;
+            top: 20px;
+            
+        }
+        .an-body::before {
+            left: -40px;
+        }
+        .an-body::after {
+            right: -40px;
+        }
+        .an-footer {
+            width: 250px;
+            height: 100px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .an-footer::before,
+        .an-footer::after {
+            content: "";
+            width: 30px;
+            height: 90px;
+            background-color: darkgreen;
+            position: absolute;
+            border-radius: 0 0 10px 10px;
+        }
+        .an-footer::before {
+            left: 50px;
+        }
+        .an-footer::after {
+            right: 50px;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+    <div class="an-header"></div>
+    <div class="an-body"></div>
+    <div class="an-footer"></div>
+</div>
+</body>
+</html>

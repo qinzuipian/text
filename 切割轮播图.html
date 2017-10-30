@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .contain {
+            width: 560px;
+            height: 300px;
+            margin: 100px auto;
+            transform-style: preserve-3d;
+            transform: rotate3d(1, 1, 0, -30deg);
+        }
+
+        .contain ul {
+            list-style: none;
+            width: 100%;
+            height: 100%;
+        }
+
+        .contain ul li {
+            width: 20%;
+            height: 100%;
+            float: left;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 1s;
+        }
+
+        .contain ul li span {
+            width: 100%;
+            height: 100%;
+            background-color: pink;
+            position: absolute;
+        }
+
+        .contain ul li span:nth-of-type(1) {
+            transform: translateZ(150px);
+            background: url("images/q1.jpg");
+        }
+
+        .contain ul li span:nth-of-type(2) {
+            transform: translateZ(-150px) rotateX(180deg);
+            background: url("images/q3.jpg");
+        }
+
+        .contain ul li span:nth-of-type(3) {
+            transform: translateY(-150px) rotatex(90deg);
+            background: url("images/q2.jpg");
+        }
+
+        .contain ul li span:nth-of-type(4) {
+            transform: translateY(150px) rotatex(-90deg);
+            background: url("images/q4.jpg");
+        }
+
+        .contain ul li:nth-of-type(2) span {
+            background-position: -100%;
+        }
+
+        .contain ul li:nth-of-type(3) span {
+            background-position: -200%;
+        }
+
+        .contain ul li:nth-of-type(4) span {
+            background-position: -300%;
+        }
+
+        .contain ul li:nth-of-type(5) span {
+            background-position: -400%;
+        }
+    </style>
+</head>
+<body>
+<div class="contain">
+    <ul>
+        <li>
+            <span>front</span>
+            <span>back</span>
+            <span>top</span>
+            <span>bottom</span>
+        </li>
+        <li>
+            <span>front</span>
+            <span>back</span>
+            <span>top</span>
+            <span>bottom</span>
+        </li>
+        <li>
+            <span>front</span>
+            <span>back</span>
+            <span>top</span>
+            <span>bottom</span>
+        </li>
+        <li>
+            <span>front</span>
+            <span>back</span>
+            <span>top</span>
+            <span>bottom</span>
+        </li>
+        <li>
+            <span>front</span>
+            <span>back</span>
+            <span>top</span>
+            <span>bottom</span>
+        </li>
+    </ul>
+</div>
+<input type="button" value="上一张" id="prev"/>
+<input type="button" value="下一张" id="next"/>
+<script>
+    var prev = document.querySelector("#prev");
+    var next = document.querySelector("#next");
+    var count = 0;
+    var flag = true;
+    prev.onclick = function () {
+        if (flag) {
+            count++;
+            var lis = document.querySelectorAll("li");
+            for (var i = 0; i < lis.length; i++) {
+                lis[i].style.transform = "rotateX(" + (count * 90) + "deg)";
+                lis[i].style.transitionDelay = 0.2 * i + "s";
+                flag = false;
+            }
+            setTimeout(function () {
+                flag = true;
+            }, 2000)
+        }
+
+    };
+    next.onclick = function () {
+        if (flag) {
+            count--;
+            var lis = document.querySelectorAll("li");
+            for (var i = 0; i < lis.length; i++) {
+                lis[i].style.transform = "rotateX(" + (count * 90) + "deg)";
+                lis[i].style.transitionDelay = 0.2 * i + "s";
+                flag = false;
+            }
+            setTimeout(function () {
+                flag = true;
+            }, 2000)
+        }
+
+    };
+</script>
+</body>
+</html>

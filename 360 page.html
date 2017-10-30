@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/360page.css"/>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.fullPage.min.js"></script>
+</head>
+<body>
+<div class="contain">
+    <div class="section first ">
+        <div class="logo"></div>
+        <div class="text">
+            <img src="images/text_1.png" alt=""/>
+            <img src="images/text_2.png" alt=""/>
+            <img src="images/text_3.png" alt=""/>
+            <img src="images/text_4.png" alt=""/>
+            <img src="images/text_5.png" alt=""/>
+            <img src="images/text_6.png" alt=""/>
+            <img src="images/text_7.png" alt=""/>
+            <img src="images/text_8.png" alt=""/>
+        </div>
+        <div class="intro"></div>
+    </div>
+    <div class="section second">
+        <div class="shield">
+            <img src="images/shield_1.png" alt=""/>
+            <img src="images/shield_2.png" alt=""/>
+            <img src="images/shield_3.png" alt=""/>
+            <img src="images/shield_4.png" alt=""/>
+            <img src="images/shield_5.png" alt=""/>
+            <img src="images/shield_6.png" alt=""/>
+            <img src="images/shield_7.png" alt=""/>
+            <img src="images/shield_8.png" alt=""/>
+            <img src="images/shield_9.png" alt=""/>
+        </div>
+        <div class="info">
+            <img src="images/info_2.png" alt=""/>
+        </div>
+    </div>
+    <div class="section third">
+        <div class="info">
+            <img src="images/info_3.png" alt=""/>
+        </div>
+        <div class="circle">
+            <div class="rocket">
+                <img src="images/rocket.png" alt=""/>
+            </div>
+        </div>
+    </div>
+    <div class="section fourth">
+        <div class="search">
+            <div class="searchbar"></div>
+            <div class="text"></div>
+            <div class="pic"></div>
+        </div>
+
+        <div class="info">
+        </div>
+    </div>
+    <div class="section fifth">
+        <div class="info">
+            <img src="images/info_5.png" alt=""/>
+        </div>
+        <div class="box">
+            <div class="boxline">
+                <div class="top"></div>
+                <div class="left"></div>
+                <div class="right"></div>
+                <div class="bottom"></div>
+            </div>
+            <div class="iebox"></div>
+            <div class="ie"></div>
+            <div class="picbox"></div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $(".contain").fullpage({
+            sectionsColor: ['#0da5d6', '#2AB561', '#DE8910', '#16BA9D', '#0DA5D6'],
+//            页面加载
+            afterLoad: function (anchorLink, index) {
+                $(".section").removeClass("current");
+                setTimeout(function () {
+                    $(".section").eq(index - 1).addClass("current");
+                }, 500)
+            }
+        })
+    });
+</script>
+
+</body>
+</html>
